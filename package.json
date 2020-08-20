@@ -1,35 +1,33 @@
 {
-  "name": "MERN Tube",
+  "name": "nodejs-mysql-authentication",
   "version": "1.0.0",
-  "description": "Mern Tube Video Streaming Service",
-  "main": "index.js",
-  "engine": {
-    "node": "10.16.0",
-    "npm": "6.9.0"
-  },
+  "description": "nodejs login with jwt token",
+  "main": "server.js",
   "scripts": {
-    "start": "node server/index.js",
-    "backend": "nodemon server/index.js",
-    "frontend": "npm run front --prefix client",
-    "dev": "concurrently \"npm run backend\" \"npm run start --prefix client\""
+    "server": "node server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "test": "node server.js"
   },
-  "author": "Michael Cui",
+  "keywords": [
+    "nodejs",
+    "jwt",
+    "passport",
+    "express"
+  ],
+  "author": "Arjun Araneta",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^3.0.6",
-    "body-parser": "^1.18.3",
-    "cookie-parser": "^1.4.3",
-    "express": "^4.17.1",
-    "fluent-ffmpeg": "^2.1.2",
-    "jsonwebtoken": "^8.5.1",
-    "moment": "^2.24.0",
-    "mongoose": "^5.4.20",
-    "multer": "^1.4.2",
-    "react-redux": "^5.0.7",
-    "socket.io": "^2.2.0"
+    "bcrypt": "^3.0.0",
+    "body-parser": "^1.17.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "jsonwebtoken": "^7.4.2",
+    "mongodb": "^3.1.6",
+    "mongoose": "^5.2.15",
+    "nodemon": "^1.18.3"
   },
   "devDependencies": {
-    "concurrently": "^4.1.0",
-    "nodemon": "^1.19.1"
+    "concurrently": "^5.3.0"
   }
 }
