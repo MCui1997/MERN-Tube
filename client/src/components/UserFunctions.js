@@ -44,7 +44,7 @@ export const getProfile = (user) => {
 
 export const getVid = (user) => {
   return axios
-    .get("users/uploadfiles", {
+    .get("users/upload", {
       //headers: { Authorization: ` ${this.getToken()}` }
     })
     .then((response) => {

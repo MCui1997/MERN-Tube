@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import jwt_decode from "jwt-decode";
-import { register } from "./UserFunctions";
+import { getVid } from "./UserFunctions";
 
 class Profile extends Component {
   constructor() {
