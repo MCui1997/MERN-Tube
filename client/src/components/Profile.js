@@ -17,7 +17,7 @@ class Profile extends Component {
   }
   onSubmit(e) {
     e.preventDefault();
-
+    console.log("hello");
     const user = {
       url: this.state.url,
     };
@@ -36,23 +36,25 @@ class Profile extends Component {
           </div>
           <div className="row">
             <div className="card">
-              <div className="form-group">
-                <label htmlFor="name">Last name</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  name="youtube"
-                  placeholder="Enter youtube url"
-                  value={this.state.url}
-                  onChange={this.onChange}
-                />
-              </div>
-              <button
-                type="submit"
-                className="btn btn-lg btn-primary btn-block"
-              >
-                Submit
-              </button>
+              <form noValidate onSubmit={this.onSubmit}>
+                <div className="form-group">
+                  <label htmlFor="name">Last name</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    name="url"
+                    placeholder="Enter youtube url"
+                    value={this.state.url}
+                    onChange={this.onChange}
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="btn btn-lg btn-primary btn-block"
+                >
+                  Submit
+                </button>
+              </form>
             </div>
           </div>
         </div>
