@@ -1,25 +1,29 @@
 import React, { Component } from "react";
-import jwt_decode from "jwt-decode";
 import { getVid } from "./UserFunctions";
 
 class Profile extends Component {
   constructor() {
     super();
     this.state = {
-      first_name: "",
-      last_name: "",
-      email: "",
-      errors: {},
+      url: "",
     };
+
+    this.onChange = this.onChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
   }
 
-  componentDidMount() {
-    const token = localStorage.usertoken;
-    const decoded = jwt_decode(token);
-    this.setState({
-      first_name: decoded.first_name,
-      last_name: decoded.last_name,
-      email: decoded.email,
+  onChange(e) {
+    this.setState({ [e.target.name]: e.target.value });
+  }
+  onSubmit(e) {
+    e.preventDefault();
+
+    const user = {
+      url: this.state.url,
+    };
+
+    getVid(user).then((res) => {
+      console.log("hello");
     });
   }
 
@@ -39,8 +43,16 @@ class Profile extends Component {
                   className="form-control"
                   name="youtube"
                   placeholder="Enter youtube url"
+                  value={this.state.url}
+                  onChange={this.onChange}
                 />
               </div>
+              <button
+                type="submit"
+                className="btn btn-lg btn-primary btn-block"
+              >
+                Submit
+              </button>
             </div>
           </div>
         </div>

@@ -98,10 +98,33 @@ users.get("/profile", (req, res) => {
 
 users.post("/upload", (req, res) => {
   const userData = {
-    url = req.body.url
+    url: req.body.url,
+  };
+  Video.create(userData)
+    .then((user) => {
+      res.json("Registered!");
+    })
+    .catch((err) => {
+      res.send("error: " + err);
+    });
+});
+
+users.post("/upload", (req, res) => {
+  const userData = {
+    url: req.body.url,
   };
 
-  console.log(userData);
+  Video.findOne({
+    url: req.body.url,
+  }).then((user) => {
+    Video.create(userData)
+      .then((user) => {
+        res.json("Registered!");
+      })
+      .catch((err) => {
+        res.send("error: " + err);
+      });
+  });
 });
 
 module.exports = users;
