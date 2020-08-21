@@ -17,13 +17,13 @@ class Profile extends Component {
   }
   onSubmit(e) {
     e.preventDefault();
-    console.log("hello");
+
     const user = {
       url: this.state.url,
     };
 
     getVid(user).then((res) => {
-      console.log("hello");
+      console.log(user);
     });
   }
 

@@ -97,17 +97,16 @@ router.get("/profile", (req, res) => {
 });
 
 router.post("/upload", (req, res) => {
-  Video.findOne({
+  const userData = {
     url: req.body.url,
-  }).then((user) => {
-    Video.create(user)
-      .then(() => {
-        res.json("Registered!");
-      })
-      .catch((err) => {
-        res.send("error: " + err);
-      });
-  });
+  };
+  Video.create(userData)
+    .then(() => {
+      res.json("Video Added!");
+    })
+    .catch((err) => {
+      res.send("error: " + err);
+    });
 });
 
 module.exports = router;
