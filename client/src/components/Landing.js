@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { getVid } from "./UserFunctions";
 
 class Landing extends Component {
   render() {

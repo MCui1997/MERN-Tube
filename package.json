@@ -16,7 +16,7 @@
     "passport",
     "express"
   ],
-  "author": "Arjun Araneta",
+  "author": "Michael Cui",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^3.0.0",

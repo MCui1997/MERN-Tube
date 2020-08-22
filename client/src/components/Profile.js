@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { getVid } from "./UserFunctions";
+import { getUrl } from "./UserFunctions";
 
 class Profile extends Component {
   constructor() {
@@ -22,7 +22,7 @@ class Profile extends Component {
       url: this.state.url,
     };
 
-    getVid(user).then((res) => {
+    getUrl(user).then((res) => {
       console.log(user);
     });
   }

@@ -42,9 +42,23 @@ export const getProfile = (user) => {
     });
 };
 
-export const getVid = (user) => {
+export const getUrl = (user) => {
   return axios
     .post("users/upload", {
+      url: user.url,
+    })
+    .then((response) => {
+      console.log(response);
+      return response.data;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+export const getVid = (user) => {
+  return axios
+    .get("users/upload", {
       url: user.url,
     })
     .then((response) => {
