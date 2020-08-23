@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { getUrl } from "./UserFunctions";
+import { getVid } from "./UserFunctions";
 import "./css/Profile.css";
 
 class Profile extends Component {
@@ -9,6 +10,7 @@ class Profile extends Component {
       url: "",
       title: "",
       description: "",
+      id: 0,
     };
 
     this.onChange = this.onChange.bind(this);
@@ -21,15 +23,25 @@ class Profile extends Component {
   onSubmit(e) {
     e.preventDefault();
 
-    const user = {
-      url: this.state.url,
-      title: this.state.title,
-      description: this.state.description,
-    };
+    getVid()
+      .then((response) => {
+        console.log(response.length);
 
-    getUrl(user).then((res) => {
-      this.props.history.push(`/`);
-    });
+        const user = {
+          url: this.state.url,
+          title: this.state.title,
+          description: this.state.description,
+          id: response.length,
+        };
+
+        getUrl(user).then((res) => {
+          console.log(user);
+          this.props.history.push(`/`);
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   render() {

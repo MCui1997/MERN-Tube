@@ -48,9 +48,9 @@ export const getUrl = (user) => {
       url: user.url,
       title: user.title,
       description: user.description,
+      id: user.id,
     })
     .then((response) => {
-      console.log(response);
       return response.data;
     })
     .catch((err) => {
@@ -62,7 +62,6 @@ export const getVid = (user) => {
   return axios
     .get("users/upload", {})
     .then((response) => {
-      console.log(response);
       return response.data;
     })
     .catch((err) => {

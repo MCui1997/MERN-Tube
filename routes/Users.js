@@ -101,6 +101,7 @@ router.post("/upload", (req, res) => {
     url: req.body.url,
     title: req.body.title,
     description: req.body.description,
+    id: req.body.id,
   };
   Video.create(userData)
     .then(() => {

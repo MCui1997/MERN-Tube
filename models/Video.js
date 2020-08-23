@@ -11,6 +11,9 @@ const VideoSchema = new Schema({
   description: {
     type: String,
   },
+  id: {
+    type: Number,
+  },
 });
 
 module.exports = Video = mongoose.model("videos", VideoSchema);

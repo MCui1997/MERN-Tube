@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { getVid } from "./UserFunctions";
+import { Link, withRouter } from "react-router-dom";
 import { Button, Card, Row, Col } from "react-materialize";
 import "./css/Landing.css";
 
@@ -14,6 +15,7 @@ class Landing extends Component {
       url: "",
       title: "",
       description: "",
+      id: "",
       search: null,
     };
   }
@@ -35,23 +37,17 @@ class Landing extends Component {
           title: titleList,
           description: descriptionList,
         });
-        console.log(urlList);
-        console.log(titleList);
       })
       .catch((error) => {
         console.log(error);
       });
   }
 
-  searchSpace = (event) => {
-    let keyword = event.target.value;
-    this.setState({ search: keyword });
-  };
-
   render() {
     return (
       <div className="container">
         <h1 className="text-center">RECENT VIDEOS</h1>
+
         <input
           type="text"
           className="form-control"
@@ -67,7 +63,7 @@ class Landing extends Component {
                   <h3>{titleList[i]}</h3>
                   <iframe width="100%" height="300px" src={urlList} key={i} />
                   <p>{descriptionList[i]}</p>
-                  <button>Visit</button>
+                  <button>{i}</button>
                 </Card>
               </div>
             );
