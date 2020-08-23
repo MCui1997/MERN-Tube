@@ -6,6 +6,7 @@ import "../styles/Video.css";
 let url = "";
 let title = "";
 let description = "";
+let gifList = [];
 
 class Video extends Component {
   constructor() {
@@ -18,7 +19,7 @@ class Video extends Component {
       search: null,
       gif: "",
       isLoaded: false,
-      contacts: [],
+      gifs: [],
     };
 
     this.onChange = this.onChange.bind(this);
@@ -30,16 +31,27 @@ class Video extends Component {
   }
   onSubmit(e) {
     e.preventDefault();
-    console.log(this.state.gif);
+
+    let queryGif = this.state.gif;
 
     let query =
-      "http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=DbERpFZtyU55Cmxy2Art9e7YDIylraiV";
+      "http://api.giphy.com/v1/gifs/search?q=" +
+      queryGif +
+      "&api_key=DbERpFZtyU55Cmxy2Art9e7YDIylraiV";
 
     fetch(query)
       .then((res) => res.json())
       .then((data) => {
-        this.setState({ contacts: data });
-        console.log(this.state.contacts);
+        this.setState({ gifs: data });
+        for (let i = 0; i < 8; i++) {
+          gifList.push(
+            "https://media0.giphy.com/media/" +
+              this.state.gifs.data[i].id +
+              "/giphy.gif"
+          );
+        }
+
+        this.render();
       })
       .catch(console.log);
   }
@@ -103,6 +115,16 @@ class Video extends Component {
                 </form>
               </Card>
             </div>
+
+            {gifList.map(function (gifList, i) {
+              return (
+                <div className="col l4">
+                  <Card>
+                    <img width="100%" height="150px" src={gifList} key={i} />
+                  </Card>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
