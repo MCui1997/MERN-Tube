@@ -43,7 +43,8 @@ class Video extends Component {
       .then((res) => res.json())
       .then((data) => {
         this.setState({ gifs: data });
-        for (let i = 0; i < 8; i++) {
+        gifList = [];
+        for (let i = 0; i < 6; i++) {
           gifList.push(
             "https://media0.giphy.com/media/" +
               this.state.gifs.data[i].id +
@@ -84,17 +85,16 @@ class Video extends Component {
           <h1 className="text-center">VIDEO PAGE</h1>
           <div className="row">
             <div className="col s12 m12 l8">
-              <Card>
-                <h3>{title}</h3>
-                <iframe src={url}></iframe>
+              <Card className="vidCard">
+                <h5>{title}</h5>
+                <iframe height="300px" width="100%" src={url}></iframe>
                 <p>{description}</p>
               </Card>
             </div>
-          </div>
-          <div className="row">
-            <div className="col s12">
-              <Card>
-                <h5>Reaction Section</h5>
+
+            <div className="col s12 m12 l4">
+              <Card className="mainCard">
+                <h5>Search Gifs</h5>
                 <form noValidate onSubmit={this.onSubmit}>
                   <div className="form-group">
                     <input
@@ -113,18 +113,23 @@ class Video extends Component {
                     Submit
                   </button>
                 </form>
+
+                {gifList.map(function (gifList, i) {
+                  return (
+                    <div className="col 12">
+                      <Card>
+                        <img width="200px" src={gifList} key={i} />
+                      </Card>
+                    </div>
+                  );
+                })}
               </Card>
             </div>
-
-            {gifList.map(function (gifList, i) {
-              return (
-                <div className="col l4">
-                  <Card>
-                    <img width="100%" height="150px" src={gifList} key={i} />
-                  </Card>
-                </div>
-              );
-            })}
+          </div>
+        </div>
+        <div className="row">
+          <div className="col s12">
+            <Card></Card>
           </div>
         </div>
       </div>

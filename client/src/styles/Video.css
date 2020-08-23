@@ -2,3 +2,13 @@
   width: 100%;
   text-align: center;
 }
+
+.mainCard {
+  overflow-y: scroll;
+  height: 375px;
+}
+
+.vidCard {
+  height: 375px;
+  overflow-y: scroll;
+}
