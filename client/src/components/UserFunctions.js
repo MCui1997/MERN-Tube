@@ -46,6 +46,8 @@ export const getUrl = (user) => {
   return axios
     .post("users/upload", {
       url: user.url,
+      title: user.title,
+      description: user.description,
     })
     .then((response) => {
       console.log(response);

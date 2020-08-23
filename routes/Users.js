@@ -99,6 +99,8 @@ router.get("/profile", (req, res) => {
 router.post("/upload", (req, res) => {
   const userData = {
     url: req.body.url,
+    title: req.body.title,
+    description: req.body.description,
   };
   Video.create(userData)
     .then(() => {

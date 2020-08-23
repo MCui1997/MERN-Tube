@@ -6,6 +6,8 @@ class Profile extends Component {
     super();
     this.state = {
       url: "",
+      title: "",
+      description: "",
     };
 
     this.onChange = this.onChange.bind(this);
@@ -20,6 +22,8 @@ class Profile extends Component {
 
     const user = {
       url: this.state.url,
+      title: this.state.title,
+      description: this.state.description,
     };
 
     getUrl(user).then((res) => {
@@ -38,12 +42,34 @@ class Profile extends Component {
             <div className="card">
               <form noValidate onSubmit={this.onSubmit}>
                 <div className="form-group">
-                  <label htmlFor="name">Last name</label>
+                  <label htmlFor="name">Title</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    name="title"
+                    placeholder="Solo Beach Camping"
+                    value={this.state.title}
+                    onChange={this.onChange}
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="name">Description</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    name="description"
+                    placeholder="Day two on the island and the weather is slowly deteriorating."
+                    value={this.state.description}
+                    onChange={this.onChange}
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="name">YouTube URL</label>
                   <input
                     type="text"
                     className="form-control"
                     name="url"
-                    placeholder="Enter youtube url"
+                    placeholder="https://www.youtube.com/watch?v=EXsPKQDmlmM"
                     value={this.state.url}
                     onChange={this.onChange}
                   />

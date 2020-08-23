@@ -4,6 +4,8 @@ import { Button, Card, Row, Col } from "react-materialize";
 import "./css/Landing.css";
 
 let urlList = [];
+let titleList = [];
+let descriptionList = [];
 
 class Landing extends Component {
   componentDidMount() {
@@ -11,11 +13,18 @@ class Landing extends Component {
       .then((response) => {
         for (let i = 0; i < response.length; i++) {
           var res = response[i].url.replace("watch?v=", "embed/");
+          titleList.push(response[i].title);
+          descriptionList.push(response[i].description);
           urlList.push(res);
         }
 
-        this.setState({ url: urlList });
+        this.setState({
+          url: urlList,
+          title: titleList,
+          description: descriptionList,
+        });
         console.log(urlList);
+        console.log(titleList);
       })
       .catch((error) => {
         console.log(error);
@@ -30,7 +39,9 @@ class Landing extends Component {
             return (
               <div className="col l6">
                 <Card>
+                  <h3>{titleList[i]}</h3>
                   <iframe width="100%" height="300px" src={urlList} key={i} />
+                  <p>{descriptionList[i]}</p>
                   <button>Visit</button>
                 </Card>
               </div>
