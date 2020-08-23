@@ -20,12 +20,13 @@ class Landing extends Component {
         console.log(error);
       });
   }
+
   render() {
     return (
       <div className="container">
-        <Card>
-          <iframe id="vid" width="250" height="250" src={urlList[3]}></iframe>
-        </Card>
+        {urlList.map(function (urlList, i) {
+          return <iframe src={urlList} key={i} />;
+        })}
       </div>
     );
   }
