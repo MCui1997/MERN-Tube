@@ -118,4 +118,12 @@ router.get("/upload", (req, res) => {
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
+router.get("/upload/:id", (req, res) => {
+  Video.findOne({
+    id: req.params.id,
+  })
+    .then((users) => res.json(users))
+    .catch((err) => res.status(400).json("Error: " + err));
+});
+
 module.exports = router;

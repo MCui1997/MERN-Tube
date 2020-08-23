@@ -68,3 +68,16 @@ export const getVid = (user) => {
       console.log(err);
     });
 };
+
+export const getOneVid = (user) => {
+  let id = user;
+  return axios
+    .get("users/upload" + id, {})
+    .then((response) => {
+      console.log(response);
+      return response.data;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
