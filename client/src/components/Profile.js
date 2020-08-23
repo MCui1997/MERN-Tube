@@ -28,7 +28,7 @@ class Profile extends Component {
     };
 
     getUrl(user).then((res) => {
-      console.log(user);
+      this.props.history.push(`/`);
     });
   }
 

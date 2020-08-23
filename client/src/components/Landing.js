@@ -14,6 +14,7 @@ class Landing extends Component {
       url: "",
       title: "",
       description: "",
+      search: null,
     };
   }
   componentDidMount() {
@@ -42,10 +43,22 @@ class Landing extends Component {
       });
   }
 
+  searchSpace = (event) => {
+    let keyword = event.target.value;
+    this.setState({ search: keyword });
+  };
+
   render() {
     return (
       <div className="container">
         <h1 className="text-center">RECENT VIDEOS</h1>
+        <input
+          type="text"
+          className="form-control"
+          name="search"
+          placeholder="Search"
+          onChange={(e) => this.searchSpace(e)}
+        />
         <div className="row">
           {urlList.map(function (urlList, i) {
             return (
