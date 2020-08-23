@@ -17,13 +17,20 @@ const mongoURI =
   "mongodb+srv://msway1997:popopop@cluster0.5ldjj.mongodb.net/<main>?retryWrites=true&w=majority";
 
 mongoose
-  .connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(process.env.MONGODB_URI || mongoURI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => console.log("MongoDB Connected"))
   .catch((err) => console.log(err));
 
 var Users = require("./routes/Users");
 
 app.use("/users", Users);
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
 
 app.listen(port, function () {
   console.log("Server is running on port: " + port);
