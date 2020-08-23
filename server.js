@@ -28,10 +28,6 @@ var Users = require("./routes/Users");
 
 app.use("/users", Users);
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-}
-
 app.listen(port, function () {
   console.log("Server is running on port: " + port);
 });
