@@ -2,3 +2,14 @@
   text-align: center;
   width: 70%;
 }
+
+.uploadCard {
+  padding: 30px;
+}
+
+@media only screen and (max-width: 1000px) {
+  .profileCont {
+    text-align: center;
+    width: 100%;
+  }
+}

@@ -58,7 +58,7 @@ class Video extends Component {
   }
   componentDidMount() {
     const id = window.localStorage.getItem("video");
-    window.localStorage.removeItem("video");
+
     getOneVid(id)
       .then((res) => {
         console.log(res);
@@ -82,7 +82,7 @@ class Video extends Component {
     return (
       <div className="row">
         <div className="container vidCont">
-          <h1 className="text-center">VIDEO PAGE</h1>
+          <h2 className="text-center">HUB</h2>
           <div className="row">
             <div className="col s12 m12 l8">
               <Card className="vidCard">

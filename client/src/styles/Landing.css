@@ -2,7 +2,24 @@
   text-align: center;
 }
 
+.cardTitle {
+  border-bottom-style: solid;
+  padding-bottom: 30px;
+}
+
+.cardDescription {
+  border-top-style: solid;
+  padding-top: 30px;
+}
+
+@media only screen and (max-width: 1000px) {
+  .landingCont {
+    text-align: center;
+    width: 100%;
+  }
+}
+
 .landingCont {
+  widows: 50%;
   text-align: center;
-  width: 80%;
 }

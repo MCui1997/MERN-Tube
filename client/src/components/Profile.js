@@ -33,7 +33,7 @@ class Profile extends Component {
         };
 
         getUrl(user).then((res) => {
-          this.props.history.push(`/`);
+          this.props.history.push(`/home`);
         });
       })
       .catch((error) => {
@@ -44,9 +44,9 @@ class Profile extends Component {
   render() {
     return (
       <div className="container profileCont">
-        <h1>UPLOAD</h1>
+        <h2>UPLOAD</h2>
         <div className="row">
-          <div className="card">
+          <div className="card uploadCard">
             <form noValidate onSubmit={this.onSubmit}>
               <div className="form-group">
                 <label htmlFor="name">Title</label>

@@ -52,7 +52,7 @@ class Landing extends Component {
 
     return (
       <div className="container landingCont">
-        <h1 className="text-center">RECENT VIDEOS</h1>
+        <h2 className="text-center">HOME</h2>
 
         <input
           type="text"
@@ -66,12 +66,16 @@ class Landing extends Component {
             return (
               <div className="col s12">
                 <Card>
-                  <h3>{titleList[i]}</h3>
+                  <h5 className="cardTitle">{titleList[i]}</h5>
                   <iframe width="100%" height="300px" src={urlList} key={i} />
-                  <p>{descriptionList[i]}</p>
+                  <p className="cardDescription">{descriptionList[i]}</p>
                   <Link to="/video">
-                    <button value={i} onClick={(e) => getId(e.target.value)}>
-                      Select
+                    <button
+                      className="hubBtn"
+                      value={i}
+                      onClick={(e) => getId(e.target.value)}
+                    >
+                      HUB
                     </button>
                   </Link>
                 </Card>
