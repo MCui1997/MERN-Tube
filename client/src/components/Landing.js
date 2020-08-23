@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { getVid, getOneVid } from "./UserFunctions";
 import { Link, withRouter } from "react-router-dom";
+import { Redirect } from "react-router";
 import { Button, Card, Row, Col } from "react-materialize";
 import "./css/Landing.css";
 
@@ -45,8 +46,8 @@ class Landing extends Component {
 
   render() {
     function getId(e) {
-      console.log("The id for this button is " + e);
-      getOneVid(e).then(this.props.history.push(`/video`));
+      window.localStorage.removeItem("video");
+      window.localStorage.setItem("video", e);
     }
 
     return (
@@ -68,8 +69,9 @@ class Landing extends Component {
                   <h3>{titleList[i]}</h3>
                   <iframe width="100%" height="300px" src={urlList} key={i} />
                   <p>{descriptionList[i]}</p>
+
                   <button value={i} onClick={(e) => getId(e.target.value)}>
-                    Visit
+                    Select
                   </button>
                 </Card>
               </div>

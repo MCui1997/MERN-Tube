@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { Button, Card, Row, Col } from "react-materialize";
+import { getOneVid } from "./UserFunctions";
 
-let urlList = [];
-let titleList = [];
-let descriptionList = [];
+let url = "";
+let title = "";
+let description = "";
 
 class Video extends Component {
   constructor() {
@@ -12,14 +13,28 @@ class Video extends Component {
       url: "",
       title: "",
       description: "",
+      id: "",
       search: null,
     };
+  }
+
+  componentDidMount() {
+    const id = window.localStorage.getItem("video");
+    getOneVid(id).then((res) => {
+      console.log(res);
+      url = res.url.replace("watch?v=", "embed/");
+      title = res.title;
+      description = res.description;
+    });
   }
 
   render() {
     return (
       <div className="container">
         <h1 className="text-center">VIDEO PAGE</h1>
+        <h3>{title}</h3>
+        <iframe src={url}></iframe>
+        <p>{description}</p>
       </div>
     );
   }

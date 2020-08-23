@@ -69,10 +69,9 @@ export const getVid = (user) => {
     });
 };
 
-export const getOneVid = (user) => {
-  let id = user;
+export const getOneVid = (id) => {
   return axios
-    .get("users/upload" + id, {})
+    .get("users/upload/" + id)
     .then((response) => {
       console.log(response);
       return response.data;
