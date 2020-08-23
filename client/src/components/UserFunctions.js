@@ -58,9 +58,7 @@ export const getUrl = (user) => {
 
 export const getVid = (user) => {
   return axios
-    .get("users/upload", {
-      url: user.url,
-    })
+    .get("users/upload", {})
     .then((response) => {
       console.log(response);
       return response.data;

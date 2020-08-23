@@ -110,24 +110,9 @@ router.post("/upload", (req, res) => {
 });
 
 router.get("/upload", (req, res) => {
-  var decoded = jwt.verify(
-    req.headers["authorization"],
-    process.env.SECRET_KEY
-  );
-
-  Video.findOne({
-    _id: decoded._id,
-  })
-    .then((user) => {
-      if (user) {
-        res.json(user);
-      } else {
-        res.send("User does not exist");
-      }
-    })
-    .catch((err) => {
-      res.send("error: " + err);
-    });
+  Video.find()
+    .then((users) => res.json(users))
+    .catch((err) => res.status(400).json("Error: " + err));
 });
 
 module.exports = router;
