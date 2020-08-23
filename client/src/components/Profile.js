@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { getUrl } from "./UserFunctions";
 import { getVid } from "./UserFunctions";
-import "./css/Profile.css";
+import "../styles/Profile.css";
 
 class Profile extends Component {
   constructor() {
@@ -43,7 +43,7 @@ class Profile extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="container profileCont">
         <h1>UPLOAD</h1>
         <div className="row">
           <div className="card">

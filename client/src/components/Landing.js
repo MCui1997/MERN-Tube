@@ -3,7 +3,7 @@ import { getVid, getOneVid } from "./UserFunctions";
 import { Link, withRouter } from "react-router-dom";
 import { Redirect } from "react-router";
 import { Button, Card, Row, Col } from "react-materialize";
-import "./css/Landing.css";
+import "../styles/Landing.css";
 
 let urlList = [];
 let titleList = [];
@@ -51,7 +51,7 @@ class Landing extends Component {
     }
 
     return (
-      <div className="container">
+      <div className="container landingCont">
         <h1 className="text-center">RECENT VIDEOS</h1>
 
         <input
