@@ -69,10 +69,11 @@ class Landing extends Component {
                   <h3>{titleList[i]}</h3>
                   <iframe width="100%" height="300px" src={urlList} key={i} />
                   <p>{descriptionList[i]}</p>
-
-                  <button value={i} onClick={(e) => getId(e.target.value)}>
-                    Select
-                  </button>
+                  <Link to="/video">
+                    <button value={i} onClick={(e) => getId(e.target.value)}>
+                      Select
+                    </button>
+                  </Link>
                 </Card>
               </div>
             );

@@ -20,12 +20,23 @@ class Video extends Component {
 
   componentDidMount() {
     const id = window.localStorage.getItem("video");
-    getOneVid(id).then((res) => {
-      console.log(res);
-      url = res.url.replace("watch?v=", "embed/");
-      title = res.title;
-      description = res.description;
-    });
+    getOneVid(id)
+      .then((res) => {
+        console.log(res);
+        url = res.url.replace("watch?v=", "embed/");
+        title = res.title;
+        description = res.description;
+
+        this.setState({
+          url: url,
+          title: title,
+          description: description,
+        });
+      })
+
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   render() {
