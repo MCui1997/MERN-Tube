@@ -10,7 +10,7 @@ class Landing extends Component {
 
   render() {
     const loginRegLink = (
-      <ul id="nav-mobile" className="right ">
+      <ul id="nav-mobile" className="left">
         <li className="nav-item">
           <Link to="/login" className="nav-link">
             Login
@@ -25,10 +25,10 @@ class Landing extends Component {
     );
 
     const userLink = (
-      <ul id="nav-mobile" className="right ">
+      <ul id="nav-mobile" className="left ">
         <li className="nav-item">
           <Link to="/profile" className="nav-link">
-            User
+            Upload
           </Link>
         </li>
         <li className="nav-item">
@@ -42,7 +42,7 @@ class Landing extends Component {
     return (
       <nav>
         <div className="nav-wrapper" id="navbarsExample10">
-          <ul id="nav-mobile" className="right ">
+          <ul id="nav-mobile" className="left ">
             <li>
               <Link to="/">Home</Link>
             </li>
