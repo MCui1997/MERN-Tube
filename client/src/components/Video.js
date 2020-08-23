@@ -80,56 +80,57 @@ class Video extends Component {
 
   render() {
     return (
-      <div className="row">
-        <div className="container vidCont">
-          <h2 className="text-center">HUB</h2>
-          <div className="row">
-            <div className="col s12 m12 l8">
-              <Card className="vidCard">
-                <h5>{title}</h5>
-                <iframe height="300px" width="100%" src={url}></iframe>
-                <p>{description}</p>
-              </Card>
-            </div>
+      <div className="container vidCont">
+        <h2 className="text-center">HUB</h2>
+        <div className="row">
+          <div className="col s12 m12 l8">
+            <Card className="vidCard">
+              <h5>{title}</h5>
+              <iframe height="300px" width="100%" src={url}></iframe>
+              <p>{description}</p>
+            </Card>
+          </div>
 
-            <div className="col s12 m12 l4">
-              <Card className="mainCard">
-                <h5>Search Gifs</h5>
-                <form noValidate onSubmit={this.onSubmit}>
-                  <div className="form-group">
-                    <input
-                      type="text"
-                      className="form-control"
-                      name="gif"
-                      placeholder="Search Gif"
-                      onChange={this.onChange}
-                      value={this.state.gif}
-                    />
+          <div className="col s12 m12 l4">
+            <Card className="mainCard">
+              <h5>Search Gifs</h5>
+              <form noValidate onSubmit={this.onSubmit}>
+                <div className="form-group">
+                  <input
+                    type="text"
+                    className="form-control"
+                    name="gif"
+                    placeholder="Search Gif"
+                    onChange={this.onChange}
+                    value={this.state.gif}
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="btn btn-lg btn-primary btn-block"
+                >
+                  Submit
+                </button>
+              </form>
+
+              {gifList.map(function (gifList, i) {
+                return (
+                  <div className="col 12">
+                    <Card>
+                      <img width="200px" src={gifList} key={i} />
+                    </Card>
                   </div>
-                  <button
-                    type="submit"
-                    className="btn btn-lg btn-primary btn-block"
-                  >
-                    Submit
-                  </button>
-                </form>
-
-                {gifList.map(function (gifList, i) {
-                  return (
-                    <div className="col 12">
-                      <Card>
-                        <img width="200px" src={gifList} key={i} />
-                      </Card>
-                    </div>
-                  );
-                })}
-              </Card>
-            </div>
+                );
+              })}
+            </Card>
           </div>
         </div>
+
         <div className="row">
           <div className="col s12">
-            <Card></Card>
+            <Card>
+              <h3>Reaction Hub</h3>
+            </Card>
           </div>
         </div>
       </div>

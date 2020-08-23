@@ -2,14 +2,11 @@
   text-align: center;
 }
 
-.cardTitle {
-  border-bottom-style: solid;
-  padding-bottom: 30px;
-}
-
-.cardDescription {
-  border-top-style: solid;
+iframe {
+  border: none;
+  height: 450px;
   padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -20,6 +17,6 @@
 }
 
 .landingCont {
-  widows: 50%;
+  width: 100%;
   text-align: center;
 }

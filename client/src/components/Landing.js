@@ -51,37 +51,38 @@ class Landing extends Component {
     }
 
     return (
-      <div className="container landingCont">
-        <h2 className="text-center">HOME</h2>
+      <div className="container">
+        <div className="landingCont">
+          <h2 className="text-center">HOME</h2>
 
-        <input
-          type="text"
-          className="form-control"
-          name="search"
-          placeholder="Search"
-          onChange={(e) => this.searchSpace(e)}
-        />
-        <div className="row">
-          {urlList.map(function (urlList, i) {
-            return (
-              <div className="col s12">
-                <Card>
-                  <h5 className="cardTitle">{titleList[i]}</h5>
-                  <iframe width="100%" height="300px" src={urlList} key={i} />
-                  <p className="cardDescription">{descriptionList[i]}</p>
-                  <Link to="/video">
-                    <button
-                      className="hubBtn"
-                      value={i}
-                      onClick={(e) => getId(e.target.value)}
-                    >
-                      HUB
-                    </button>
-                  </Link>
-                </Card>
-              </div>
-            );
-          })}
+          <input
+            type="text"
+            className="form-control"
+            name="search"
+            placeholder="Search"
+            onChange={(e) => this.searchSpace(e)}
+          />
+          <div className="row">
+            {urlList.map(function (urlList, i) {
+              return (
+                <div className="col s12">
+                  <Card>
+                    <h3 className="cardTitle">{titleList[i]}</h3>
+                    <iframe width="100%" src={urlList} key={i} />
+                    <Link to="/video">
+                      <button
+                        className="btn-floating pulse"
+                        value={i}
+                        onClick={(e) => getId(e.target.value)}
+                      >
+                        HUB
+                      </button>
+                    </Link>
+                  </Card>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     );
