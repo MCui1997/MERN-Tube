@@ -118,6 +118,7 @@ router.post("/gif", (req, res) => {
   const gifData = {
     url: req.body.url,
     id: req.body.id,
+    date: req.body.date,
   };
   Gifs.create(gifData)
     .then(() => {

@@ -9,6 +9,11 @@ const GifsSchema = new Schema({
   id: {
     type: Number,
   },
+
+  date: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
 module.exports = Gifs = mongoose.model("gifs", GifsSchema);

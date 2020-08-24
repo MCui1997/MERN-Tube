@@ -8,6 +8,7 @@ let title = "";
 let description = "";
 let gifList = [];
 let vidGifList = [];
+let vidGifDates = [];
 
 class Video extends Component {
   constructor() {
@@ -62,11 +63,14 @@ class Video extends Component {
 
     getVidGifs(id).then((res) => {
       vidGifList = [];
+      vidGifDates = [];
 
       for (let i = 0; i < res.length; i++) {
         vidGifList.push(res[i].url);
+        vidGifDates.push(res[i].date.substring(0, 7));
       }
 
+      console.log(vidGifDates);
       this.setState({});
     });
 
@@ -162,6 +166,7 @@ class Video extends Component {
                 return (
                   <Card>
                     <img width="200px" src={vidGifList} key={i} />
+                    <p>{vidGifDates[i]}</p>
                   </Card>
                 );
               })}
