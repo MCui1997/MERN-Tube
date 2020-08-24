@@ -23,10 +23,10 @@ if (process.env.NODE_ENV === "production") {
 }
 
 const mongoURI =
-  "mongodb://michael:Michael123123@ds163517.mlab.com:63517/heroku_rj34t739";
+  "mongodb+srv://msway1997:HpY17fD6B7EsrpaM@cluster0.5ldjj.mongodb.net/<main>?retryWrites=true&w=majority";
 
 mongoose
-  .connect(process.env.MONGODB_URI || mongoURI, {
+  .connect(mongoURI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
