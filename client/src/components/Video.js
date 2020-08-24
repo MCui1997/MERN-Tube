@@ -139,16 +139,16 @@ class Video extends Component {
 
               {gifList.map(function (gifList, i) {
                 return (
-                  <div className="col 12">
+                  <div className="col s12">
                     <Card>
                       <img width="200px" src={gifList} key={i} />
-
+                      <br></br>
                       <button
                         className="btn-floating pulse"
                         value={i}
                         onClick={(e) => saveGif(e.target.value)}
                       >
-                        SELECT
+                        ✓
                       </button>
                     </Card>
                   </div>
