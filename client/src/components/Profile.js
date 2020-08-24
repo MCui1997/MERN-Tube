@@ -25,6 +25,7 @@ class Profile extends Component {
 
     getVid()
       .then((response) => {
+        console.log(response);
         const user = {
           url: this.state.url,
           title: this.state.title,
