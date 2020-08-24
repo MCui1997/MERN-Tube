@@ -6,6 +6,8 @@ const bcrypt = require("bcrypt");
 
 const User = require("../models/User");
 const Video = require("../models/Video");
+const Gifs = require("../models/Gifs");
+
 router.use(cors());
 
 process.env.SECRET_KEY = "secret";
@@ -104,6 +106,20 @@ router.post("/upload", (req, res) => {
     id: req.body.id,
   };
   Video.create(userData)
+    .then(() => {
+      res.json("Video Added!");
+    })
+    .catch((err) => {
+      res.send("error: " + err);
+    });
+});
+
+router.post("/gif", (req, res) => {
+  const gifData = {
+    url: req.body.url,
+    id: req.body.id,
+  };
+  Gifs.create(gifData)
     .then(() => {
       res.json("Video Added!");
     })

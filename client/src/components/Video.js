@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Button, Card, Row, Col } from "react-materialize";
-import { getOneVid } from "./UserFunctions";
+import { getOneVid, getGif } from "./UserFunctions";
 import "../styles/Video.css";
 
 let url = "";
@@ -61,7 +61,6 @@ class Video extends Component {
 
     getOneVid(id)
       .then((res) => {
-        console.log(res);
         url = res.url.replace("watch?v=", "embed/");
         title = res.title;
         description = res.description;
@@ -79,6 +78,16 @@ class Video extends Component {
   }
 
   render() {
+    function saveGif(e) {
+      const user = {
+        url: gifList[e],
+        id: window.localStorage.getItem("video"),
+      };
+
+      getGif(user).then((res) => {
+        console.log(user);
+      });
+    }
     return (
       <div className="container vidCont">
         <h2 className="text-center">HUB</h2>
@@ -118,6 +127,14 @@ class Video extends Component {
                   <div className="col 12">
                     <Card>
                       <img width="200px" src={gifList} key={i} />
+
+                      <button
+                        className="btn-floating pulse"
+                        value={i}
+                        onClick={(e) => saveGif(e.target.value)}
+                      >
+                        SELECT
+                      </button>
                     </Card>
                   </div>
                 );

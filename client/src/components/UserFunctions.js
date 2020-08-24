@@ -58,6 +58,20 @@ export const getUrl = (user) => {
     });
 };
 
+export const getGif = (user) => {
+  return axios
+    .post("users/gif", {
+      url: user.url,
+      id: user.id,
+    })
+    .then((response) => {
+      return response.data;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
 export const getVid = (user) => {
   return axios
     .get("users/upload", {})
