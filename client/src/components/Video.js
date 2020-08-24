@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import { Button, Card, Row, Col } from "react-materialize";
-import { getOneVid, getGif } from "./UserFunctions";
+import { getOneVid, getGif, getVidGifs } from "./UserFunctions";
 import "../styles/Video.css";
 
 let url = "";
 let title = "";
 let description = "";
 let gifList = [];
+let vidGifList = [];
 
 class Video extends Component {
   constructor() {
@@ -59,6 +60,16 @@ class Video extends Component {
   componentDidMount() {
     const id = window.localStorage.getItem("video");
 
+    getVidGifs(id).then((res) => {
+      vidGifList = [];
+
+      for (let i = 0; i < res.length; i++) {
+        vidGifList.push(res[i].url);
+      }
+
+      this.setState({});
+    });
+
     getOneVid(id)
       .then((res) => {
         url = res.url.replace("watch?v=", "embed/");
@@ -85,7 +96,7 @@ class Video extends Component {
       };
 
       getGif(user).then((res) => {
-        console.log(user);
+        window.location.reload();
       });
     }
     return (
@@ -147,6 +158,13 @@ class Video extends Component {
           <div className="col s12">
             <Card>
               <h3>Reaction Hub</h3>
+              {vidGifList.map(function (vidGifList, i) {
+                return (
+                  <Card>
+                    <img width="200px" src={vidGifList} key={i} />
+                  </Card>
+                );
+              })}
             </Card>
           </div>
         </div>

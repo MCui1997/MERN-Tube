@@ -94,3 +94,15 @@ export const getOneVid = (id) => {
       console.log(err);
     });
 };
+
+export const getVidGifs = (id) => {
+  return axios
+    .get("users/gif/" + id)
+    .then((response) => {
+      console.log(response);
+      return response.data;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};

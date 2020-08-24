@@ -142,4 +142,12 @@ router.get("/upload/:id", (req, res) => {
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
+router.get("/gif/:id", (req, res) => {
+  Gifs.find({
+    id: req.params.id,
+  })
+    .then((users) => res.json(users))
+    .catch((err) => res.status(400).json("Error: " + err));
+});
+
 module.exports = router;
