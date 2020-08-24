@@ -4,6 +4,7 @@ var bodyParser = require("body-parser");
 var app = express();
 const mongoose = require("mongoose");
 var port = process.env.PORT || 5000;
+const path = require("path");
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -12,6 +13,14 @@ app.use(
     extended: false,
   })
 );
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
+}
 
 const mongoURI =
   "mongodb+srv://msway1997:popopop@cluster0.5ldjj.mongodb.net/<main>?retryWrites=true&w=majority";
