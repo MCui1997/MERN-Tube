@@ -13,6 +13,7 @@ Technologies
 * Node.js
 * React.js
 * Express.js
+* Materialize as Front End Framework
 ```
 Features
 ```
@@ -38,3 +39,18 @@ SO that I can enjoy videos, see interactions, and not be disturbed by horrible c
 
 ## Screenshots
 
+1. Login Page 
+
+![Alt text](/screenshots/login.PNG "Optional Title")
+
+2. Home Page
+
+![Alt text](/screenshots/home.PNG "Optional Title")
+
+3. Hub Page
+
+![Alt text](/screenshots/hub.PNG "Optional Title")
+
+4. Upload Page
+
+![Alt text](/screenshots/upload.PNG "Optional Title")
