@@ -6,6 +6,8 @@ An online streaming service similar to YouTube! This project utilizes the MERN S
 
 [Deployed](https://pure-badlands-52253.herokuapp.com/)
 
+[Presentation](https://docs.google.com/presentation/d/12-PKh40LE6L1Yu4Tw6hBzC0hKrA9Ykyt3WSCcCUmfxU/edit?usp=sharing)
+
 ## Technologies and Features
 
 Technologies
