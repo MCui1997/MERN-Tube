@@ -14,8 +14,7 @@ app.use(
   })
 );
 
-const mongoURI =
-  "mongodb+srv://msway1997:HpY17fD6B7EsrpaM@cluster0.5ldjj.mongodb.net/<main>?retryWrites=true&w=majority";
+const mongoURI = "";
 
 mongoose
   .connect(process.env.MONGODB_URI || mongoURI, {
