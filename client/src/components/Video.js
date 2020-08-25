@@ -37,7 +37,7 @@ class Video extends Component {
     let queryGif = this.state.gif;
 
     let query =
-      "http://api.giphy.com/v1/gifs/search?q=" +
+      "https://cors-anywhere.herokuapp.com/http://api.giphy.com/v1/gifs/search?q=" +
       queryGif +
       "&api_key=DbERpFZtyU55Cmxy2Art9e7YDIylraiV";
 
