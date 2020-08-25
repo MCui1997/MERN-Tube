@@ -56,3 +56,5 @@ SO that I can enjoy videos, see interactions, and not be disturbed by horrible c
 4. Upload Page
 
 ![Alt text](/screenshots/upload.PNG "Optional Title")
+
+(Note: The upload portion requires the exact youtube url. Ideally, a user would be able to upload video from local device, the youtube url is just a way to represent that function)
