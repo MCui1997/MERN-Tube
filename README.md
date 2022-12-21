@@ -1,5 +1,7 @@
 # MERN Tube
 
+## Disclaimer: Site is no longer being hosted on Heroku due to Heroku updates and pricing changes
+
 ## Description
 
 An online streaming service similar to YouTube! This project utilizes the MERN Stack and creates a streaming service environment that utilizes gifs and stickers for reactionary features as opposed to comments. This allows users to maintain involvement with videos but takes out the toxicity and conflict in the horror known as the YouTUBE comment section. It uses the Giphy API for gifs and stickers and all data is saved using MongoDB. 
